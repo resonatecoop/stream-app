@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "resonate-app",
-    "slug": "resonate-app",
+    "name": "stream-app",
+    "slug": "stream-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
