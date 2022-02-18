@@ -9,3 +9,5 @@ See the [stream](https://github.com/resonatecoop/stream) repository for details.
 npm install --global expo-cli
 expo start
 ```
+
+You can preview the published version of the app here: [stream-app on Expo](https://expo.dev/@peterklingelhofer/stream-app?serviceType=classic&distribution=expo-go) with the [Expo Go App](https://expo.dev/client)
