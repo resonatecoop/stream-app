@@ -4,10 +4,11 @@ import { getTrackingPermissionsAsync, requestTrackingPermissionsAsync } from 'ex
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
-import TrackingPermissionsDeclined from './client/components/TrackingPermissionsDeclined';
+import CookiePolicy from './client/components/CookiePolicy';
 
 export default function App() {
   const [trackingPermissions, setTrackingPermissions] = useState(false);
+
   useEffect(() => {
     (async () => {
       const { granted } = await getTrackingPermissionsAsync();
@@ -20,19 +21,20 @@ export default function App() {
     })();
   }, []);
 
-  const mainView = <>
-    <StatusBar
-      hidden={false}
-      style="dark"
-    />
-    <WebView
-      sharedCookiesEnabled={true}
-      source={{ uri: 'https://stream.resonate.coop/discover' }}
-      style={styles.container}
-    />
-  </>
+  const mainView =
+    <>
+      <StatusBar
+        hidden={false}
+        style="auto"
+      />
+      <WebView
+        sharedCookiesEnabled={true}
+        source={{ uri: 'https://stream.resonate.coop/discover' }}
+        style={styles.container}
+      />
+    </>
 
-  return trackingPermissions ? mainView : <TrackingPermissionsDeclined />;
+  return trackingPermissions ? mainView : <CookiePolicy />;
 }
 
 const styles = StyleSheet.create({

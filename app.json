@@ -3,7 +3,7 @@
     "name": "stream-app",
     "slug": "stream-app",
     "privacy": "unlisted",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -20,7 +20,8 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.resonate.stream-app"
+      "bundleIdentifier": "com.resonate.stream-app",
+      "buildNumber": "1.0.2"
     },
     "android": {
       "adaptiveIcon": {
@@ -35,7 +36,7 @@
       [
         "expo-tracking-transparency",
         {
-          "userTrackingPermission": "To ensure you get the best experience, Resonate uses cookies. Functional cookies are used to keep you logged in for a while and remember your theme settings. Disallowing tracking permissions precludes use of this app. Visit https://resonate.is/cookie-policy to learn more."
+          "userTrackingPermission": "To ensure you get the best experience, Resonate uses cookies. Functional cookies are used to keep you logged in for a while and remember your theme settings. Disallowing tracking permissions precludes the use of this app. Visit https://resonate.is/cookie-policy to learn more."
         }
       ]
     ]
