@@ -24,7 +24,7 @@ export default function App() {
   const mainView =
     <>
       <StatusBar
-        hidden={false}
+        hidden={true}
         style="auto"
       />
       <WebView
