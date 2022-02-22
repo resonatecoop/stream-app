@@ -98,7 +98,8 @@ Commit messages should be written in present tense describing what the committed
 
 - [Expo](https://expo.dev/)
 - [React Native](https://reactnative.dev/)
-- [TypeScript](typescriptlang.org/')
+- [TypeScript](https://typescriptlang.org/')
+
 
 ## 📑 License
 
@@ -106,6 +107,7 @@ Commit messages should be written in present tense describing what the committed
 [GNU General Public License v3.0](https://github.com/peterklingelhofer/stream-app/blob/master/LICENSE)
 
 Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
+
 
 ## 📇 Contact
 
