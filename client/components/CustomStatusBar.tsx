@@ -5,14 +5,14 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-type Props = {
-    trackingPermissions: boolean;
+interface ICustomStatusBar {
+    isRequestingPermissions: boolean;
 }
 
-export default function CustomStatusBar({ trackingPermissions }: Props) {
+export default function CustomStatusBar({ isRequestingPermissions }: ICustomStatusBar) {
     const insets = useSafeAreaInsets();
     const colorScheme = useColorScheme();
-    const isDark: boolean = colorScheme === 'dark' && trackingPermissions;
+    const isDark: boolean = colorScheme === 'dark' && !isRequestingPermissions;
     const backgroundColor = isDark ? '#181A1B' : '#fff';
     const barStyle = isDark ? 'light-content' : 'dark-content';
 

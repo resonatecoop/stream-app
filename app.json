@@ -3,7 +3,7 @@
     "name": "stream-app",
     "slug": "stream-app",
     "privacy": "unlisted",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
@@ -21,7 +21,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.resonate.stream-app",
-      "buildNumber": "1.0.6"
+      "buildNumber": "1.0.7"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,7 +29,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.resonate.streamapp",
-      "versionCode": 4
+      "versionCode": 7
     },
     "web": {
       "favicon": "./assets/favicon.png"
