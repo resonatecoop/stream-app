@@ -34,7 +34,9 @@ A mobile app for playing music on [Resonate](https://stream.resonate.coop/), an 
 
 A [demonstration video](https://www.dropbox.com/s/yfpaw0v7lu2x9af/Simulator%20Screen%20Recording%20-%20iPhone%208%20-%202022-02-17%20at%2018.58.26.mp4?dl=0) is available.
 
-A [Public TestFlight Build](https://testflight.apple.com/join/WJZ5EHqf) is available for external testing on iOS.
+A [Public TestFlight iOS Build](https://testflight.apple.com/join/WJZ5EHqf) is available for external testing.
+
+An [Internal Google Play Android Build](https://play.google.com/apps/internaltest/4700299220475747819) is available for internal testing.
 
 The [Expo Project Page](https://expo.dev/@peterklingelhofer/stream-app?serviceType=classic&distribution=expo-go) permits testing with the [Expo Go](https://expo.dev/client) client.
 
