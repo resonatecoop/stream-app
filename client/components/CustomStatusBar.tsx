@@ -13,18 +13,19 @@ export default function CustomStatusBar({ trackingPermissions }: Props) {
     const insets = useSafeAreaInsets();
     const colorScheme = useColorScheme();
     const isDark: boolean = colorScheme === 'dark' && trackingPermissions;
+    const backgroundColor = isDark ? '#181A1B' : '#fff';
 
     return (
-        <View style={{ height: insets.top, backgroundColor: isDark ? '#181A1B' : '#fff' }}>
+        <View style={{ height: insets.top, backgroundColor }}>
             {isDark
                 ? <StatusBar
                     animated={true}
-                    backgroundColor={'#181A1B'}
+                    backgroundColor={backgroundColor}
                     barStyle={'light-content'}
                 />
                 : <StatusBar
                     animated={true}
-                    backgroundColor={'#fff'}
+                    backgroundColor={backgroundColor}
                     barStyle={'dark-content'}
                 />}
         </View>

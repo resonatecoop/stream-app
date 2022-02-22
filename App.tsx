@@ -35,7 +35,7 @@ export default function App() {
   const content = trackingPermissions
     ? <WebView
       sharedCookiesEnabled={true}
-      source={{ uri: 'https://stream.resonate.ninja/discover' }}
+      source={{ uri: 'https://stream.resonate.coop/discover' }}
       style={styles.container}
     />
     : <CookiePolicy />;
