@@ -2,7 +2,6 @@ import Constants from 'expo-constants';
 import React from 'react';
 import {
   Image,
-  Linking,
   Platform,
   ScrollView,
   StyleSheet,
@@ -16,35 +15,25 @@ export default function CookiePolicy() {
         style={styles.image}
         source={require('../../assets/icon.png')}
       />
+      <Text
+        style={styles.text}>
+        {"\n"}
+        {"\n"}
+        Resonate only uses cookies to guarantee core functionalities, such as keeping you logged in for a while, or remembering your theme settings. No other type of activity is tracked.
+        {"\n"}
+      </Text>
       {Platform.OS === 'ios' && (
         <>
           <Text
             style={styles.text}>
-            If you are not prompted requesting permissions, go to
+            These settings can be found at
           </Text>
           <Text
             style={{ ...styles.boldText, ...styles.text }}>
             Settings &gt; Privacy &gt; Tracking
           </Text>
-          <Text
-            style={styles.text}>
-            and enable permissions for Resonate.
-          </Text>
         </>
       )}
-      <Text
-        style={styles.text}>
-        {"\n"}
-        To ensure you get the best experience, Resonate uses cookies.
-        Functional cookies are used to keep you logged in for a while and remember your theme settings.
-        Disallowing tracking permissions precludes the use of this app.
-        {"\n"}
-      </Text>
-      <Text
-        style={styles.link}
-        onPress={() => Linking.openURL('https://resonate.is/cookie-policy')}>
-        Resonate's Cookie Policy
-      </Text>
     </ScrollView>
   )
 }
