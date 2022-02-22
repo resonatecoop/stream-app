@@ -6,7 +6,10 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { StyleSheet } from 'react-native';
+import {
+  StyleSheet,
+  useColorScheme,
+} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 import CookiePolicy from './client/components/CookiePolicy';
@@ -14,6 +17,8 @@ import CustomStatusBar from './client/components/CustomStatusBar';
 
 export default function App() {
   const [trackingPermissions, setTrackingPermissions] = useState(false);
+  const colorScheme = useColorScheme();
+  const isDark: boolean = colorScheme === 'dark';
 
   useEffect(() => {
     (async () => {
@@ -30,14 +35,14 @@ export default function App() {
   const content = trackingPermissions
     ? <WebView
       sharedCookiesEnabled={true}
-      source={{ uri: 'https://stream.resonate.coop/discover' }}
+      source={{ uri: 'https://stream.resonate.ninja/discover' }}
       style={styles.container}
     />
     : <CookiePolicy />;
 
   return (
     <SafeAreaProvider>
-      <CustomStatusBar />
+      <CustomStatusBar trackingPermissions={trackingPermissions} />
       {content}
     </SafeAreaProvider>
   )

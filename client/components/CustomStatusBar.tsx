@@ -1,22 +1,25 @@
 import {
+    StatusBar,
     useColorScheme,
     View,
-    StatusBar,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+type Props = {
+    trackingPermissions: boolean;
+}
 
-export default function CustomStatusBar() {
-    const colorScheme = useColorScheme();
+export default function CustomStatusBar({ trackingPermissions }: Props) {
     const insets = useSafeAreaInsets();
-    const isDark = colorScheme === 'dark';
+    const colorScheme = useColorScheme();
+    const isDark: boolean = colorScheme === 'dark' && trackingPermissions;
 
     return (
-        <View style={{ height: insets.top, backgroundColor: isDark ? '#000' : '#fff' }}>
+        <View style={{ height: insets.top, backgroundColor: isDark ? '#181A1B' : '#fff' }}>
             {isDark
                 ? <StatusBar
                     animated={true}
-                    backgroundColor={'#000'}
+                    backgroundColor={'#181A1B'}
                     barStyle={'light-content'}
                 />
                 : <StatusBar

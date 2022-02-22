@@ -1,6 +1,13 @@
 import Constants from 'expo-constants';
 import React from 'react';
-import { Image, Linking, Platform, ScrollView, StyleSheet, Text } from 'react-native';
+import {
+  Image,
+  Linking,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+} from 'react-native';
 
 export default function CookiePolicy() {
   return (
@@ -21,12 +28,7 @@ export default function CookiePolicy() {
           </Text>
           <Text
             style={styles.text}>
-            and enable
-          </Text>
-          <Text
-            style={{ ...styles.boldText, ...styles.text }}>
-            Allow Apps to Request to Track
-            {"\n"}
+            and enable permissions for Resonate.
           </Text>
         </>
       )}
