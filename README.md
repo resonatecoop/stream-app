@@ -70,9 +70,14 @@ Clone this repository, install dependencies, and start expo.
 ```sh
 git clone https://github.com/peterklingelhofer/stream-app.git
 cd stream-app
-npm install --global expo-cli
+yarn global add expo-cli
+yarn
 expo start
 ```
+
+
+## 🧪 Testing
+For testing, per [#3 under Other issues to consider](https://github.com/resonatecoop/stream/issues/171), we should probably also be testing (at-least locally) with the development branch of the [stream repository](https://github.com/resonatecoop/stream) considering the Wordpress transition should be launching within around early to mid March 2022 -- change the WebView `source` prop in `App.tsx` to `source={{ uri: 'https://stream.resonate.ninja/discover' }}`. As far as we know, the only difference for the streaming player should be signup/login flow and account settings.
 
 
 ## 📚 Contributing
