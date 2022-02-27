@@ -1,4 +1,5 @@
 import Constants from 'expo-constants';
+import * as Linking from 'expo-linking';
 import React from 'react';
 import {
   Image,
@@ -7,13 +8,15 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  View,
 } from 'react-native';
 
 type Props = {
+  promptForPermissions: boolean;
   setPromptForPermissions: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function CookiePolicy({ setPromptForPermissions }: Props) {
+export default function CookiePolicy({ promptForPermissions, setPromptForPermissions }: Props) {
   return (
     <ScrollView style={styles.container}>
       <Image
@@ -22,11 +25,7 @@ export default function CookiePolicy({ setPromptForPermissions }: Props) {
       />
       <Text
         style={styles.text}>
-        {"\n"}
-        {"\n"}
-        {"\n"}
-        {"\n"}
-        {"\n"}
+        {promptForPermissions && "\n \n \n \n \n \n \n \n"}
         Resonate only uses cookies to guarantee core functionalities, such as keeping you logged in for a while, or remembering your theme settings. No other type of activity is tracked.
         {"\n"}
       </Text>
@@ -42,14 +41,25 @@ export default function CookiePolicy({ setPromptForPermissions }: Props) {
           </Text>
         </>
       )}
-      <Pressable
-        style={styles.button}
-        onPress={() => setPromptForPermissions(true)}>
-        <Text
-          style={[styles.boldText, styles.text]}>
-          Continue
-        </Text>
-      </Pressable>
+      {!promptForPermissions &&
+        <>
+          <Text
+            style={{ ...styles.linkText, ...styles.text }}
+            onPress={() => Linking.openURL('https://github.com/resonatecoop')}>
+          {"\n"}
+            View Resonate's Open Source Code on GitHub.com (External Link)
+          {"\n"}
+          </Text>
+          <Pressable
+            style={styles.button}
+            onPress={() => setPromptForPermissions(true)}>
+            <Text
+              style={[styles.boldText, styles.text]}>
+              Continue
+            </Text>
+          </Pressable>
+        </>
+      }
     </ScrollView>
   )
 }
@@ -78,13 +88,14 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
     marginHorizontal: '10%',
   },
-  link: {
-    fontSize: 24,
+  linkText: {
     textDecorationLine: 'underline',
   },
   image: {
     height: 360,
     marginHorizontal: '10%',
+    marginTop: -80,
+    marginBottom: -10,
     width: '80%',
   },
   text: {
