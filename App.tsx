@@ -18,9 +18,10 @@ import {
 } from './client/helpers/Permissions';
 
 export default function App() {
-  const [trackingPermissions, setTrackingPermissions] = useState(false);
-  const [isRequestingPermissions, setIsRequestingPermissions] = useState(true);
   const [didPermissionsChange, setDidPermissionsChange] = useState(false);
+  const [promptForPermissions, setPromptForPermissions] = useState(false);
+  const [isRequestingPermissions, setIsRequestingPermissions] = useState(true);
+  const [trackingPermissions, setTrackingPermissions] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -32,31 +33,41 @@ export default function App() {
           storePermissionsGranted(true);
           setDidPermissionsChange(true);
         }
-      } else {
-        const { status } = await requestTrackingPermissionsAsync();
-        const arePermissionsGranted = status === 'granted';
-        setTrackingPermissions(arePermissionsGranted);
-        if (arePermissionsGranted !== arePermissionsGrantedHistorically) {
-          storePermissionsGranted(arePermissionsGranted);
-          setDidPermissionsChange(true);
-        }
+
+        setIsRequestingPermissions(false);
       }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const arePermissionsGrantedHistorically = await getPermissionsGranted();
+        if (!promptForPermissions) {
+          return;
+        }
+      const { status } = await requestTrackingPermissionsAsync();
+      const arePermissionsGranted = status === 'granted';
+      setTrackingPermissions(arePermissionsGranted);
+      if (arePermissionsGranted !== arePermissionsGrantedHistorically) {
+        storePermissionsGranted(arePermissionsGranted);
+        setDidPermissionsChange(true);
+      }
+      setPromptForPermissions(false)
 
       setIsRequestingPermissions(false);
     })();
-  }, []);
+  }, [promptForPermissions]);
 
   return (
     <SafeAreaProvider>
       <CustomStatusBar isRequestingPermissions={isRequestingPermissions} />
       {
         isRequestingPermissions
-          ? <CookiePolicy />
+          ? <CookiePolicy setPromptForPermissions={setPromptForPermissions}/>
           : <WebView
             allowsBackForwardNavigationGestures
             cacheEnabled={didPermissionsChange}
             injectedJavaScript={cookiePreferences(trackingPermissions)}
-            pullToRefreshEnabled
             sharedCookiesEnabled={trackingPermissions}
             source={{
               uri: 'https://stream.resonate.coop/discover',
