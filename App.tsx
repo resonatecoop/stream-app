@@ -63,7 +63,10 @@ export default function App() {
       <CustomStatusBar isRequestingPermissions={isRequestingPermissions} />
       {
         isRequestingPermissions
-          ? <CookiePolicy setPromptForPermissions={setPromptForPermissions}/>
+          ? <CookiePolicy
+            promptForPermissions={promptForPermissions}
+            setPromptForPermissions={setPromptForPermissions}
+          />
           : <WebView
             allowsBackForwardNavigationGestures
             cacheEnabled={didPermissionsChange}
