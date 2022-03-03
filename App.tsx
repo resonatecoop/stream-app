@@ -71,7 +71,7 @@ export default function App() {
             allowsBackForwardNavigationGestures
             cacheEnabled={didPermissionsChange}
             injectedJavaScript={cookiePreferences(trackingPermissions)}
-            sharedCookiesEnabled={trackingPermissions}
+            sharedCookiesEnabled={false}
             source={{
               uri: 'https://stream.resonate.coop/discover',
               headers: {
