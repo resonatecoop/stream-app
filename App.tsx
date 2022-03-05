@@ -1,3 +1,4 @@
+import * as SplashScreen from 'expo-splash-screen';
 import {
   getTrackingPermissionsAsync,
   requestTrackingPermissionsAsync,
@@ -15,16 +16,21 @@ import {
   cookiePreferences,
   getPermissionsGranted,
   storePermissionsGranted,
-} from './client/helpers/Permissions';
+} from './client/helpers/permissions';
+import { originAllowList } from './client/helpers/originAllowList';
 
 export default function App() {
   const [didPermissionsChange, setDidPermissionsChange] = useState(false);
   const [promptForPermissions, setPromptForPermissions] = useState(false);
   const [isRequestingPermissions, setIsRequestingPermissions] = useState(true);
   const [trackingPermissions, setTrackingPermissions] = useState(false);
+  const [webViewKey, setWebViewKey] = useState(0);
+  const reloadWebView = () => setWebViewKey(webViewKey + 1)
+  const hideSplashScreen = async () => await SplashScreen.hideAsync();
 
   useEffect(() => {
     (async () => {
+      await SplashScreen.preventAutoHideAsync();
       const arePermissionsGrantedHistorically = await getPermissionsGranted();
       const { granted } = await getTrackingPermissionsAsync();
       if (granted) {
@@ -41,10 +47,12 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
+      hideSplashScreen();
+      if (!promptForPermissions) {
+        return;
+      }
+
       const arePermissionsGrantedHistorically = await getPermissionsGranted();
-        if (!promptForPermissions) {
-          return;
-        }
       const { status } = await requestTrackingPermissionsAsync();
       const arePermissionsGranted = status === 'granted';
       setTrackingPermissions(arePermissionsGranted);
@@ -52,15 +60,15 @@ export default function App() {
         storePermissionsGranted(arePermissionsGranted);
         setDidPermissionsChange(true);
       }
-      setPromptForPermissions(false)
 
+      setPromptForPermissions(false)
       setIsRequestingPermissions(false);
     })();
   }, [promptForPermissions]);
 
   return (
     <SafeAreaProvider>
-      <CustomStatusBar isRequestingPermissions={isRequestingPermissions} />
+      <CustomStatusBar />
       {
         isRequestingPermissions
           ? <CookiePolicy
@@ -71,6 +79,12 @@ export default function App() {
             allowsBackForwardNavigationGestures
             cacheEnabled={didPermissionsChange}
             injectedJavaScript={cookiePreferences(trackingPermissions)}
+            key={webViewKey}
+            mediaPlaybackRequiresUserAction={true}
+            onContentProcessDidTerminate={reloadWebView}
+            onLoadEnd={hideSplashScreen}
+            onRenderProcessGone={reloadWebView}
+            originWhitelist={originAllowList}
             sharedCookiesEnabled={false}
             source={{
               uri: 'https://stream.resonate.coop/discover',
@@ -78,6 +92,7 @@ export default function App() {
                 'doNotTrack': trackingPermissions ? '0' : '1',
               },
             }}
+            startInLoadingState={true}
             style={styles.container}
             textInteractionEnabled={false}
           />
@@ -89,5 +104,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: -2,
   },
 });
