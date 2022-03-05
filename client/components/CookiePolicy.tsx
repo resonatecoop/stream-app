@@ -1,15 +1,14 @@
 import Constants from 'expo-constants';
-import * as Linking from 'expo-linking';
+import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
-  Image,
   Platform,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
+import ResonateLogo from './ResonateLogo'
 
 type Props = {
   promptForPermissions: boolean;
@@ -19,17 +18,14 @@ type Props = {
 export default function CookiePolicy({ promptForPermissions, setPromptForPermissions }: Props) {
   return (
     <ScrollView style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require('../../assets/icon.png')}
-      />
+      <ResonateLogo />
       <Text
         style={styles.text}>
-        {promptForPermissions && "\n \n \n \n \n \n \n \n"}
+        {promptForPermissions && "\n \n \n \n \n \n \n \n \n \n \n"}
         Resonate only uses cookies to guarantee core functionalities, such as keeping you logged in for a while, or remembering your theme settings. No other type of activity is tracked.
         {"\n"}
       </Text>
-      {Platform.OS === 'ios' && (
+      {Platform.OS === 'ios' && !promptForPermissions && (
         <>
           <Text
             style={styles.text}>
@@ -45,7 +41,7 @@ export default function CookiePolicy({ promptForPermissions, setPromptForPermiss
         <>
           <Text
             style={{ ...styles.linkText, ...styles.text }}
-            onPress={() => Linking.openURL('https://github.com/resonatecoop')}>
+            onPress={() => WebBrowser.openBrowserAsync('https://github.com/resonatecoop')}>
           {"\n"}
             View Resonate's Open Source Code on GitHub.com (External Link)
           {"\n"}
@@ -90,13 +86,6 @@ const styles = StyleSheet.create({
   },
   linkText: {
     textDecorationLine: 'underline',
-  },
-  image: {
-    height: 360,
-    marginHorizontal: '10%',
-    marginTop: -80,
-    marginBottom: -10,
-    width: '80%',
   },
   text: {
     fontSize: 18,
