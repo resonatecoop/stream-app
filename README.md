@@ -32,9 +32,9 @@
 ## 🎵 Resonate Stream App
 A mobile app for playing music on [Resonate](https://stream.resonate.coop/), an open source music streaming co-op.
 
-An [🤖Android Build on Google Play](https://play.google.com/store/apps/details?id=com.resonate.streamapp) is available for open testing.
+The [🤖 Android App](https://play.google.com/store/apps/details?id=com.resonate.streamapp) is available for open testing.
 
-An [🍏iOS Build Public TestFlight](https://testflight.apple.com/join/WJZ5EHqf) is available for external testing.
+The [🍎 Apple/iOS App](https://testflight.apple.com/join/WJZ5EHqf) is available for external testing.
 
 The [Expo Project Page](https://expo.dev/@peterklingelhofer/stream-app?serviceType=classic&distribution=expo-go) permits testing with the [Expo Go](https://expo.dev/client) client.
 
