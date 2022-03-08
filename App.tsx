@@ -57,6 +57,7 @@ export default function App() {
       {!isRequestingPermissions && <WebView
         allowsBackForwardNavigationGestures
         cacheEnabled={didPermissionsChange}
+        ignoreSilentHardwareSwitch
         injectedJavaScript={cookiePreferences(trackingPermissions)}
         javaScriptCanOpenWindowsAutomatically
         key={webViewKey}
