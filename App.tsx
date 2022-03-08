@@ -10,7 +10,6 @@ import React, {
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
-import CookiePolicy from './client/components/CookiePolicy';
 import CustomStatusBar from './client/components/CustomStatusBar';
 import {
   cookiePreferences,
@@ -21,7 +20,6 @@ import { originAllowList } from './client/helpers/originAllowList';
 
 export default function App() {
   const [didPermissionsChange, setDidPermissionsChange] = useState(false);
-  const [promptForPermissions, setPromptForPermissions] = useState(false);
   const [isRequestingPermissions, setIsRequestingPermissions] = useState(true);
   const [trackingPermissions, setTrackingPermissions] = useState(false);
   const [webViewKey, setWebViewKey] = useState(0);
@@ -39,64 +37,45 @@ export default function App() {
           storePermissionsGranted(true);
           setDidPermissionsChange(true);
         }
-
-        setIsRequestingPermissions(false);
-      }
-    })();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      hideSplashScreen();
-      if (!promptForPermissions) {
-        return;
+      } else {
+        const { status } = await requestTrackingPermissionsAsync();
+        const arePermissionsGranted = status === 'granted';
+        setTrackingPermissions(arePermissionsGranted);
+        if (arePermissionsGranted !== arePermissionsGrantedHistorically) {
+          storePermissionsGranted(arePermissionsGranted);
+          setDidPermissionsChange(true);
+        }
       }
 
-      const arePermissionsGrantedHistorically = await getPermissionsGranted();
-      const { status } = await requestTrackingPermissionsAsync();
-      const arePermissionsGranted = status === 'granted';
-      setTrackingPermissions(arePermissionsGranted);
-      if (arePermissionsGranted !== arePermissionsGrantedHistorically) {
-        storePermissionsGranted(arePermissionsGranted);
-        setDidPermissionsChange(true);
-      }
-
-      setPromptForPermissions(false)
       setIsRequestingPermissions(false);
     })();
-  }, [promptForPermissions]);
+  }, []);
 
   return (
     <SafeAreaProvider>
       <CustomStatusBar />
-      {
-        isRequestingPermissions
-          ? <CookiePolicy
-            promptForPermissions={promptForPermissions}
-            setPromptForPermissions={setPromptForPermissions}
-          />
-          : <WebView
-            allowsBackForwardNavigationGestures
-            cacheEnabled={didPermissionsChange}
-            injectedJavaScript={cookiePreferences(trackingPermissions)}
-            key={webViewKey}
-            mediaPlaybackRequiresUserAction={true}
-            onContentProcessDidTerminate={reloadWebView}
-            onLoadEnd={hideSplashScreen}
-            onRenderProcessGone={reloadWebView}
-            originWhitelist={originAllowList}
-            sharedCookiesEnabled={false}
-            source={{
-              uri: 'https://stream.resonate.coop/discover',
-              headers: {
-                'doNotTrack': trackingPermissions ? '0' : '1',
-              },
-            }}
-            startInLoadingState={true}
-            style={styles.container}
-            textInteractionEnabled={false}
-          />
-      }
+      {!isRequestingPermissions && <WebView
+        allowsBackForwardNavigationGestures
+        cacheEnabled={didPermissionsChange}
+        injectedJavaScript={cookiePreferences(trackingPermissions)}
+        javaScriptCanOpenWindowsAutomatically
+        key={webViewKey}
+        mediaPlaybackRequiresUserAction
+        onContentProcessDidTerminate={reloadWebView}
+        onLoadEnd={hideSplashScreen}
+        onRenderProcessGone={reloadWebView}
+        originWhitelist={originAllowList}
+        sharedCookiesEnabled={false}
+        source={{
+          uri: 'https://stream.resonate.coop/discover',
+          headers: {
+            'doNotTrack': trackingPermissions ? '0' : '1',
+          },
+        }}
+        startInLoadingState
+        style={styles.container}
+        textInteractionEnabled={false}
+      />}
     </SafeAreaProvider>
   )
 }
