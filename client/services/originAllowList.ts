@@ -5,6 +5,7 @@ export const originAllowList: Array<string> = [
     'https://offen.resonate.is',
     'https://offen.stream.resonate.coop',
     'https://resonate.is',
+    'https://resonate.coop',
     'https://stream.resonate.coop',
     'https://stream.resonate.ninja',
     'https://stripe.com',
