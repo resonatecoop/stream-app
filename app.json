@@ -43,7 +43,7 @@
             [
                 "expo-tracking-transparency",
                 {
-                    "userTrackingPermission": "To ensure you get the best experience, Resonate uses cookies. Functional cookies are used to keep you logged in for a while and remember your theme settings. Disallowing tracking permissions precludes the use of this app. Visit https://resonate.is/cookie-policy to learn more."
+                    "userTrackingPermission": "Resonate only uses cookies to guarantee core functionalities, such as keeping you logged in for a while, or remembering your theme settings. No other type of activity is tracked. Visit https://resonate.is/cookie-policy to learn more, or view Resonate's open source code at https://github.com/resonatecoop."
                 }
             ]
         ]
