@@ -16,7 +16,7 @@ import {
 	getPermissionsGranted,
 	storePermissionsGranted,
 } from './client/helpers/permissions';
-import { originAllowList } from './client/helpers/originAllowList';
+import { originAllowList } from './client/services/originAllowList';
 
 export default function App() {
 	const [areTrackingPermissionsGranted, setAreTrackingPermissionsGranted] = useState(false);
