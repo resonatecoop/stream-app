@@ -1,4 +1,4 @@
-export const originAllowList: string[] = [
+export const originAllowList: Array<string> = [
     'https://community.resonate.is',
     'https://js.stripe.com',
     'https://m.stripe.network',
