@@ -1,51 +1,51 @@
 {
-  "expo": {
-    "name": "Resonate",
-    "slug": "stream-app",
-    "privacy": "unlisted",
-    "version": "1.1.3",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.resonate.stream-app",
-      "buildNumber": "1.1.3",
-      "infoPlist": {
-        "UIBackgroundModes": [
-          "audio"
+    "expo": {
+        "name": "Resonate",
+        "slug": "stream-app",
+        "privacy": "unlisted",
+        "version": "1.1.3",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "automatic",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.resonate.stream-app",
+            "buildNumber": "1.1.3",
+            "infoPlist": {
+                "UIBackgroundModes": [
+                    "audio"
+                ]
+            }
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#FFFFFF"
+            },
+            "package": "com.resonate.streamapp",
+            "versionCode": 13
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            [
+                "expo-tracking-transparency",
+                {
+                    "userTrackingPermission": "To ensure you get the best experience, Resonate uses cookies. Functional cookies are used to keep you logged in for a while and remember your theme settings. Disallowing tracking permissions precludes the use of this app. Visit https://resonate.is/cookie-policy to learn more."
+                }
+            ]
         ]
-      }
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.resonate.streamapp",
-      "versionCode": 13
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      [
-        "expo-tracking-transparency",
-        {
-          "userTrackingPermission": "To ensure you get the best experience, Resonate uses cookies. Functional cookies are used to keep you logged in for a while and remember your theme settings. Disallowing tracking permissions precludes the use of this app. Visit https://resonate.is/cookie-policy to learn more."
-        }
-      ]
-    ]
-  }
+    }
 }
