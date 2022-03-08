@@ -19,12 +19,13 @@ import {
 import { originAllowList } from './client/helpers/originAllowList';
 
 export default function App() {
+  const [areTrackingPermissionsGranted, setAreTrackingPermissionsGranted] = useState(false);
   const [didPermissionsChange, setDidPermissionsChange] = useState(false);
   const [isRequestingPermissions, setIsRequestingPermissions] = useState(true);
-  const [trackingPermissions, setTrackingPermissions] = useState(false);
   const [webViewKey, setWebViewKey] = useState(0);
-  const reloadWebView = () => setWebViewKey(webViewKey + 1)
+
   const hideSplashScreen = async () => await SplashScreen.hideAsync();
+  const reloadWebView = () => setWebViewKey(webViewKey + 1)
 
   useEffect(() => {
     (async () => {
@@ -32,7 +33,7 @@ export default function App() {
       const arePermissionsGrantedHistorically = await getPermissionsGranted();
       const { granted } = await getTrackingPermissionsAsync();
       if (granted) {
-        setTrackingPermissions(true);
+        setAreTrackingPermissionsGranted(true);
         if (!arePermissionsGrantedHistorically) {
           storePermissionsGranted(true);
           setDidPermissionsChange(true);
@@ -40,7 +41,7 @@ export default function App() {
       } else {
         const { status } = await requestTrackingPermissionsAsync();
         const arePermissionsGranted = status === 'granted';
-        setTrackingPermissions(arePermissionsGranted);
+        setAreTrackingPermissionsGranted(arePermissionsGranted);
         if (arePermissionsGranted !== arePermissionsGrantedHistorically) {
           storePermissionsGranted(arePermissionsGranted);
           setDidPermissionsChange(true);
@@ -58,7 +59,7 @@ export default function App() {
         allowsBackForwardNavigationGestures
         cacheEnabled={didPermissionsChange}
         ignoreSilentHardwareSwitch
-        injectedJavaScript={cookiePreferences(trackingPermissions)}
+        injectedJavaScript={cookiePreferences(areTrackingPermissionsGranted)}
         javaScriptCanOpenWindowsAutomatically
         key={webViewKey}
         mediaPlaybackRequiresUserAction
@@ -70,7 +71,7 @@ export default function App() {
         source={{
           uri: 'https://stream.resonate.coop/discover',
           headers: {
-            'doNotTrack': trackingPermissions ? '0' : '1',
+            'doNotTrack': areTrackingPermissionsGranted ? '0' : '1',
           },
         }}
         startInLoadingState
