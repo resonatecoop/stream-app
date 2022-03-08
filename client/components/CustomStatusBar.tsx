@@ -1,5 +1,6 @@
 import {
     StatusBar,
+    StatusBarStyle,
     useColorScheme,
     View,
 } from 'react-native';
@@ -9,8 +10,8 @@ export default function CustomStatusBar() {
     const insets = useSafeAreaInsets();
     const colorScheme = useColorScheme();
     const isDark: boolean = colorScheme === 'dark';
-    const backgroundColor = isDark ? '#181A1B' : '#fff';
-    const barStyle = isDark ? 'light-content' : 'dark-content';
+    const backgroundColor: string = isDark ? '#181A1B' : '#fff';
+    const barStyle: StatusBarStyle = isDark ? 'light-content' : 'dark-content';
 
     return (
         <View style={{ height: insets.top, backgroundColor }}>
