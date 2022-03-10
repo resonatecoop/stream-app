@@ -22,6 +22,7 @@ export default function App() {
     const [areTrackingPermissionsGranted, setAreTrackingPermissionsGranted] = useState(false);
     const [didPermissionsChange, setDidPermissionsChange] = useState(false);
     const [isRequestingPermissions, setIsRequestingPermissions] = useState(true);
+    const [uri, setUri] = useState('https://stream.resonate.coop/discover');
     const [webViewKey, setWebViewKey] = useState(0);
 
     const hideSplashScreen = async () => await SplashScreen.hideAsync();
@@ -57,13 +58,15 @@ export default function App() {
             <CustomStatusBar />
             {!isRequestingPermissions && <WebView
                 allowsBackForwardNavigationGestures
+                allowsInlineMediaPlayback
                 cacheEnabled={didPermissionsChange}
                 ignoreSilentHardwareSwitch
                 injectedJavaScript={cookiePreferences(areTrackingPermissionsGranted)}
                 javaScriptCanOpenWindowsAutomatically
                 key={webViewKey}
-                mediaPlaybackRequiresUserAction
+                mediaPlaybackRequiresUserAction={false}
                 onContentProcessDidTerminate={reloadWebView}
+                onNavigationStateChange={navState => setUri(navState.url)}
                 onLoadEnd={hideSplashScreen}
                 onRenderProcessGone={reloadWebView}
                 originWhitelist={originAllowList}
@@ -72,7 +75,7 @@ export default function App() {
                     headers: {
                         'doNotTrack': areTrackingPermissionsGranted ? '0' : '1',
                     },
-                    uri: 'https://stream.resonate.coop/discover',
+                    uri,
                 }}
                 startInLoadingState
                 style={styles.container}
