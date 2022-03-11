@@ -3,7 +3,7 @@
         "name": "Resonate",
         "slug": "stream-app",
         "privacy": "unlisted",
-        "version": "1.1.4",
+        "version": "1.1.5",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
         "userInterfaceStyle": "automatic",
@@ -21,7 +21,7 @@
         "ios": {
             "supportsTablet": true,
             "bundleIdentifier": "com.resonate.stream-app",
-            "buildNumber": "1.1.4",
+            "buildNumber": "1.1.5",
             "infoPlist": {
                 "UIBackgroundModes": [
                     "audio",
@@ -35,7 +35,7 @@
                 "backgroundColor": "#FFFFFF"
             },
             "package": "com.resonate.streamapp",
-            "versionCode": 14
+            "versionCode": 15
         },
         "web": {
             "favicon": "./assets/favicon.png"

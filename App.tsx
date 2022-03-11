@@ -1,3 +1,4 @@
+import { useKeepAwake } from 'expo-keep-awake';
 import * as SplashScreen from 'expo-splash-screen';
 import {
     getTrackingPermissionsAsync,
@@ -27,6 +28,7 @@ export default function App() {
 
     const hideSplashScreen = async () => await SplashScreen.hideAsync();
     const reloadWebView = () => setWebViewKey(webViewKey + 1)
+    useKeepAwake();
 
     useEffect(() => {
         (async () => {
