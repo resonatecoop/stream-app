@@ -21,6 +21,4 @@ export const storePermissionsGranted = async (value: boolean) => {
     } catch (e) {
         console.log(e);
     }
-
-    return false;
 };
