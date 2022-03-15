@@ -7,8 +7,13 @@ import {
 import React, {
     useEffect,
     useState,
+    useRef,
 } from 'react';
-import { StyleSheet } from 'react-native';
+import {
+    BackHandler,
+    Platform,
+    StyleSheet,
+} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 import CustomStatusBar from './client/components/CustomStatusBar';
@@ -29,6 +34,24 @@ export default function App() {
     const hideSplashScreen = async () => await SplashScreen.hideAsync();
     const reloadWebView = () => setWebViewKey(webViewKey + 1)
     useKeepAwake();
+
+    const webViewRef = useRef<WebView>(null);
+    const onAndroidBackPress = (): boolean => {
+        if (webViewRef.current) {
+          webViewRef.current.goBack();
+          return true; // prevent default behavior (exit app)
+        }
+        return false;
+    };
+
+    useEffect((): (() => void) | undefined => {
+        if (Platform.OS === 'android') {
+            BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
+            return (): void => {
+                BackHandler.removeEventListener('hardwareBackPress', onAndroidBackPress);
+            };
+        }
+    }, []);
 
     useEffect(() => {
         (async () => {
@@ -72,6 +95,7 @@ export default function App() {
                 onLoadEnd={hideSplashScreen}
                 onRenderProcessGone={reloadWebView}
                 originWhitelist={originAllowList}
+                ref={webViewRef}
                 sharedCookiesEnabled={false}
                 source={{
                     headers: {
@@ -81,7 +105,6 @@ export default function App() {
                 }}
                 startInLoadingState
                 style={styles.container}
-                textInteractionEnabled={false}
             />}
         </SafeAreaProvider>
     )
