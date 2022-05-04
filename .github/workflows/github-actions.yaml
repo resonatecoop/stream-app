@@ -19,4 +19,4 @@ jobs:
       uses: srggrs/assign-one-project-github-action@1.2.1
       if: github.event.action == 'opened'
       with:
-        project: 'https://github.com/peterklingelhofer/stream/projects/1'
+        project: 'https://github.com/peterklingelhofer/stream-app/projects/1'
