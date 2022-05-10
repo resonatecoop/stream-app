@@ -114,3 +114,8 @@ Permissions of this strong copyleft license are conditioned on making available 
 ## 📇 Contact
 
 peterklingelhofer@gmail.com
+
+## 📸 Screenshots
+![Screenshot_20220328-234520_Resonate](https://user-images.githubusercontent.com/60944077/167742491-00e0ac80-3fc7-4b6d-a564-d4bd03c146da.jpg)
+![Screenshot_20220328-234804_Resonate](https://user-images.githubusercontent.com/60944077/167742511-087af2d5-af71-45a3-96ef-e1d5d7e2034a.png)
+![Screenshot_20220328-234942_Resonate](https://user-images.githubusercontent.com/60944077/167742534-13c8d18b-7923-439d-8b61-abd7ea53896e.jpg)
