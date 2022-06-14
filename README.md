@@ -75,7 +75,7 @@ expo start
 ```
 
 ## 📦 Build
-Install the latest [EAS-Client](https://docs.expo.dev/build/setup/).
+Install the latest Expo Application Services (EAS) package.
 
 ```sh
 npm install -g eas-cli
@@ -84,8 +84,12 @@ npm install -g eas-cli
 Then create a build for whichever platform you desire:
 ```sh
 eas build -p android
+```
+```sh
 eas build -p ios
 ```
+
+For more in-depth instructions and additional options, review the [official Expo build documentation](https://docs.expo.dev/build/introduction/).
 
 ## 🧪 Testing
 For testing, per [#3 under Other issues to consider](https://github.com/resonatecoop/stream/issues/171), we should probably also be testing (at-least locally) with the development branch of the [stream repository](https://github.com/resonatecoop/stream) considering the in-progress Wordpress transition -- change the WebView `source` prop in `App.tsx` to `source={{ uri: 'https://stream.resonate.ninja/discover' }}`. As far as we know, the only difference for the streaming player should be signup/login flow and account settings.
