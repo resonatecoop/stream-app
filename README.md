@@ -53,7 +53,7 @@ View the [project board](https://github.com/peterklingelhofer/stream-app/project
 Are you building something using the Resonate [API](#api) and would like to request a change? Resonate welcomes #proposals in the [Co-Operation section of the forum](https://community.resonate.is/c/66).
 
 
-## 📦 Tech Stack
+## 🗂 Tech Stack
 
 - Babel
 - Expo
@@ -74,6 +74,18 @@ yarn
 expo start
 ```
 
+## 📦 Build
+Install the latest [EAS-Client](https://docs.expo.dev/build/setup/).
+
+```sh
+npm install -g eas-cli
+```
+
+Then create a build for whichever platform you desire:
+```sh
+eas build -p android
+eas build -p ios
+```
 
 ## 🧪 Testing
 For testing, per [#3 under Other issues to consider](https://github.com/resonatecoop/stream/issues/171), we should probably also be testing (at-least locally) with the development branch of the [stream repository](https://github.com/resonatecoop/stream) considering the in-progress Wordpress transition -- change the WebView `source` prop in `App.tsx` to `source={{ uri: 'https://stream.resonate.ninja/discover' }}`. As far as we know, the only difference for the streaming player should be signup/login flow and account settings.
