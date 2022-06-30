@@ -134,10 +134,6 @@ Commit messages should be written in present tense describing what the committed
 Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
 
 
-## 📇 Contact
-
-peterklingelhofer@gmail.com
-
 ## 📸 Screenshots
 ![Screenshot_20220328-234520_Resonate](https://user-images.githubusercontent.com/60944077/167742491-00e0ac80-3fc7-4b6d-a564-d4bd03c146da.jpg)
 ![Screenshot_20220328-234804_Resonate](https://user-images.githubusercontent.com/60944077/167742511-087af2d5-af71-45a3-96ef-e1d5d7e2034a.png)
