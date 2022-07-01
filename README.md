@@ -29,11 +29,12 @@
 </div>
 <br />
 
+## 🚧 Development Status
+Development on this repository has been discontinued, in favor of building out a non-`react-native-webview` React Native TypeScript implementation in this repository: [`dream`](https://github.com/resonatecoop/dream). While this is happening, users should feel free to continue to use this app, but not expect any further fixes or features.
+
 ## 🎵 Resonate Stream App
 
 A mobile app for playing music on [Resonate](https://stream.resonate.coop/), an open source music streaming co-op.
-
-🚧 Development on this repository has been discontinued, in favor of building out a non-`react-native-webview` React Native TypeScript implementation in this repository: [`dream`](https://github.com/resonatecoop/dream) 🚧
 
 The [🤖 Android App](https://play.google.com/store/apps/details?id=com.resonate.streamapp) is available for open testing.
 
