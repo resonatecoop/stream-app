@@ -1,10 +1,4 @@
 <div align="center">
-  <h1 align="center">stream2own</h1>
-  <strong>Play fair.</strong>
-</div>
-<br />
-
-<div align="center">
   <h3>
     <a href="https://resonate.is">
       Website
