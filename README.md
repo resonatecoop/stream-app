@@ -24,7 +24,7 @@
 <br />
 
 ## 🚧 Development Status
-Development on this repository has been discontinued, in favor of building out a non-`react-native-webview` React Native TypeScript implementation in this repository: [`dream`](https://github.com/resonatecoop/dream). While this is happening, users should feel free to continue to use this app, but not expect any further fixes or features.
+Development on this repository has been discontinued, in favor of building out a non-`react-native-webview` React Native TypeScript implementation in this repository: [`mobile`](https://github.com/resonatecoop/mobile). While this is happening, users should feel free to continue to use this app, but not expect any further fixes or features.
 
 ## 🎵 Resonate Stream App
 
