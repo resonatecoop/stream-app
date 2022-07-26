@@ -24,7 +24,7 @@
 <br />
 
 ## 🚧 Development Status
-Development on this repository has been discontinued, in favor of building out a non-`react-native-webview` React Native TypeScript implementation in this repository: [`mobile`](https://github.com/resonatecoop/mobile). While this is happening, users should feel free to continue to use this app, but not expect any further fixes or features.
+A mobile app for playing music on Resonate, an open source music streaming co-op. This is now being actively developed here: [`mobile`](https://github.com/resonatecoop/mobile) - a non-`react-native-webview` React Native TypeScript implementation in this repository. While this is happening, users should feel free to continue to use this app, but not expect any further features..
 
 ## 🎵 Resonate Stream App
 
