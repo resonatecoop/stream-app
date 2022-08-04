@@ -2,6 +2,7 @@ import { Platform } from 'react-native';
 
 export const originAllowList: string[] = [
     'https://community.resonate.is',
+    'https://community.resonate.coop',
     'https://js.stripe.com',
     'https://m.stripe.network',
     'https://offen.resonate.is',
