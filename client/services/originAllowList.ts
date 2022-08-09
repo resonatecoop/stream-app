@@ -10,7 +10,6 @@ export const originAllowList: string[] = [
     Platform.OS === 'android'
         ? ''
         : 'https://resonate.coop',
-    'https://resonate.coop',
     'https://stream.resonate.coop',
     'https://stream.resonate.ninja',
     'https://stripe.com',
