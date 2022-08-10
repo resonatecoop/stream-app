@@ -85,6 +85,7 @@ export default function App() {
                 allowsBackForwardNavigationGestures
                 allowsInlineMediaPlayback
                 cacheEnabled={didPermissionsChange}
+                decelerationRate={'normal'}
                 ignoreSilentHardwareSwitch
                 injectedJavaScript={cookiePreferences(areTrackingPermissionsGranted)}
                 javaScriptCanOpenWindowsAutomatically
