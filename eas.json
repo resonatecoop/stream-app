@@ -13,6 +13,11 @@
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "../stream-app-341815-d0c68312ac9c.json",
+        "track": "beta"
+      }
+    }
   }
 }
