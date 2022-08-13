@@ -14,4 +14,5 @@ export const originAllowList: string[] = [
     "https://stream.resonate.coop",
     "https://stream.resonate.ninja",
     "https://stripe.com",
+    "http://localhost:8080",
 ];
