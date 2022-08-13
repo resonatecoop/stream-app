@@ -27,7 +27,7 @@
 >
 > This project is currently in [maintenance mode](https://en.wikipedia.org/wiki/Maintenance_mode) - users should feel free to continue to use this app and expect bug fixes, but not expect many additional features, as this is considered relatively feature-complete (given the limitations of [`react-native-webview`](https://github.com/react-native-webview/react-native-webview).
 > 
-> Future development is occurring here: [`mobile`](https://github.com/resonatecoop/mobile) as a React Native TypeScript implementation without `react-native-webview`. Note that this repository is still active on the [Google Play Store](https://play.google.com/store/apps/details?id=com.resonate.streamapp) and the [Apple Store](https://testflight.apple.com/join/WJZ5EHqf), so please submit any issues for problems encountered [here](https://github.com/peterklingelhofer/stream-app/issues), as we are continuing to offer support and fix bugs while [`mobile`](https://github.com/resonatecoop/mobile) development is still underway.
+> Future development is occurring here: [`mobile`](https://github.com/resonatecoop/mobile) as a React Native TypeScript implementation without [`react-native-webview`](https://github.com/react-native-webview/react-native-webview). Note that this repository is still active on the [Google Play Store](https://play.google.com/store/apps/details?id=com.resonate.streamapp) and the [Apple Store](https://testflight.apple.com/join/WJZ5EHqf), so please submit any issues for problems encountered [here](https://github.com/peterklingelhofer/stream-app/issues), as we are continuing to offer support and fix bugs while [`mobile`](https://github.com/resonatecoop/mobile) development is still underway.
 
 ## 🎵 Resonate Stream App
 
