@@ -1,4 +1,4 @@
-> 🛠 **Status: Maintenance Mode**
+> 🛠 **Status: Maintenance Mode | Stable**
 >
 > This project is currently in [maintenance mode](https://en.wikipedia.org/wiki/Maintenance_mode) - users should feel free to continue to use this app and expect bug fixes, but not expect many additional features, as this is considered relatively feature-complete (given the limitations of [`react-native-webview`](https://github.com/react-native-webview/react-native-webview).
 > 
