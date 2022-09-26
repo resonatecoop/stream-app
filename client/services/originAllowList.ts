@@ -1,18 +1,26 @@
 import { Platform } from "react-native";
 
-export const originAllowList: string[] = [
+const allDevicesAllowList: string[] = [
     "http://localhost:8080",
     "https://community.resonate.coop",
     "https://community.resonate.is",
     "https://id.resonate.coop",
-    "https://js.stripe.com",
-    "https://m.stripe.network",
     "https://offen.resonate.is",
     "https://offen.stream.resonate.coop",
     "https://stream.resonate.coop",
     "https://stream.resonate.ninja",
-    "https://stripe.com",
-    ...Platform.OS === "android"
-        ? []
-        : [ "https://resonate.coop" ],
+    "https://js.stripe.com",
+    "https://m.stripe.network",
+];
+
+const iOSAllowList: string[] = Platform.OS === "android"
+    ? []
+    : [
+        "https://resonate.coop",
+        "https://stripe.com",
+    ];
+
+export const originAllowList: string[] = [
+    ...allDevicesAllowList,
+    ...iOSAllowList,
 ];
